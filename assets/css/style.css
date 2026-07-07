@@ -1,0 +1,119 @@
+/* ==========================================================
+   Signal — custom visual layer (on top of Tailwind utilities)
+   Mission-log aesthetic: ruled ledger rows, stamped status
+   badges, monospace timestamps.
+   ========================================================== */
+
+body {
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(227, 168, 87, 0.06), transparent 40%),
+    radial-gradient(circle at 85% 90%, rgba(95, 168, 140, 0.05), transparent 40%);
+  background-attachment: fixed;
+}
+
+/* Faint horizontal ledger rules behind the task log */
+.ledger-rules {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 55px,
+    rgba(241, 238, 228, 0.05) 56px
+  );
+}
+
+/* Ticket-style task ID */
+.ticket-id {
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.05em;
+}
+
+/* Stamp badge — the signature element: status/priority rendered
+   like a rubber ink stamp, slightly rotated, textured border. */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border: 1.5px solid currentColor;
+  border-radius: 3px;
+  transform: rotate(-2deg);
+  position: relative;
+}
+
+.stamp::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border: 1px dashed currentColor;
+  border-radius: 2px;
+  opacity: 0.5;
+}
+
+.stamp-urgent   { color: #D65A4A; }
+.stamp-high     { color: #E3A857; }
+.stamp-medium   { color: #8FA9A6; }
+.stamp-low      { color: #5FA88C; }
+.stamp-pending      { color: #8FA9A6; }
+.stamp-in_progress  { color: #E3A857; transform: rotate(2deg); }
+.stamp-completed    { color: #5FA88C; transform: rotate(-1deg); }
+
+/* Scanline sweep across the header bar */
+.scan-header {
+  position: relative;
+  overflow: hidden;
+}
+.scan-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(227, 168, 87, 0.08), transparent);
+  animation: sweep 6s ease-in-out infinite;
+}
+@keyframes sweep {
+  0%   { left: -30%; }
+  50%  { left: 100%; }
+  100% { left: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scan-header::after { animation: none; display: none; }
+}
+
+/* Blinking signal dot for "live" indicators */
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #5FA88C;
+  box-shadow: 0 0 0 rgba(95, 168, 140, 0.6);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(95, 168, 140, 0.5); }
+  70%  { box-shadow: 0 0 0 6px rgba(95, 168, 140, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(95, 168, 140, 0); }
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  background: rgba(10, 34, 36, 0.75);
+  backdrop-filter: blur(2px);
+}
+
+/* Scrollbar tuning for the log panel */
+.log-scroll::-webkit-scrollbar { width: 8px; }
+.log-scroll::-webkit-scrollbar-track { background: transparent; }
+.log-scroll::-webkit-scrollbar-thumb { background: #1D4C4F; border-radius: 4px; }
+
+/* Focus visibility (accessibility) */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #E3A857;
+  outline-offset: 2px;
+}

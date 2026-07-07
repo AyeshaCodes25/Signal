@@ -17,7 +17,7 @@ items, and recent activity.
 |-----------|-------------|
 | ![Sign In](signin.JPG) | ![Control Room](controlroom.JPG) |
 | Task Log | New Entry |
-|-----------|---------|
+|          |          |
 | ![Task Log](tasklog.JPG) | ![New Entry](newentry.JPG) |
 ## ✨ Key Features
 ### 🔐 Authentication

@@ -62,6 +62,7 @@ Full setup instructions are in the repo.
 ## 👩‍💻 Developer Contact
 Ayesha Amjad — Front-End Developer & Digital Marketing Specialist
 📧 ayeshaamjad819@gmail.com
+🌐 Live Project: https://signal.infinityfree.me
 🔗 github.com/AyeshaCodes25
 
 ## 🔐 Demo Login Credentials

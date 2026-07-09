@@ -57,7 +57,7 @@ Full setup instructions are in the repo.
 - **Password:** password123
 ---
 ## 👩‍💻 Developer Contact
-**Ayesha Amjad** — Front-End Developer & Digital Marketing Specialist
+**Ayesha Amjad** — Full-Stack Developer (Front-End Focused) & Digital Marketing Specialist
 📧 ayeshaamjad819@gmail.com
 🌐 Live Project: https://signal.infinityfree.me
 🔗 github.com/AyeshaCodes25
